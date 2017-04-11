@@ -1,0 +1,14 @@
+region: ap-southeast-2
+function_name: XtractaUpload
+handler: upload_function.handler
+role: LendiAIS3Read
+description: handles uploading from S3 to Xtracta
+
+# if access key and secret are left blank, boto will use the credentials
+# defined in the [default] section of ~/.aws/credentials.
+aws_access_key_id:
+aws_secret_access_key:
+
+# dist_directory: dist
+timeout: 30
+memory_size: 512

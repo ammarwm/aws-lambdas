@@ -1,0 +1,14 @@
+region: ap-southeast-2
+function_name: DocumentData
+handler: document_data_function.handler
+role: LendiAIAPI
+description: handles requests to lendi-ai to get latest document data
+
+# if access key and secret are left blank, boto will use the credentials
+# defined in the [default] section of ~/.aws/credentials.
+aws_access_key_id:
+aws_secret_access_key:
+
+# dist_directory: dist
+timeout: 30
+memory_size: 512
