@@ -17,6 +17,7 @@ DATABASES = {
                     "password":os.getenv("SF_DBPASSWORD"),
                     "ssl":True}}
 
+XTRACTA_URL_TIMEOUT = 3600
 XTRACTA = {"url":os.getenv("XTRACTA_URL"), "key":os.getenv("XTRACTA_KEY")}
 
 WORKFLOW_MAPPING = {"a1u6F000003HtqHQAS":"50713"}

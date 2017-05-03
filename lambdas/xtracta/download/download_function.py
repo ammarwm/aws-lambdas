@@ -6,7 +6,7 @@ try:
     import psycopg2 as db
 except ImportError:
     import pg8000 as db
-from sql_queries import sql_queries
+from sql_queries import SQLQUERIES
 from config import DATABASES, XTRACTA
 
 
@@ -37,11 +37,12 @@ def handler(event, context=None):
         xtracta_document_id = event['events']['event']['document']['document_id']
         revision = event['events']['event']['document']['@revision']
         result = event['events']['event']['document']
+        xtracta_status = event['events']['event']['document']['document_status']
     except TypeError:
         LOGGER.exception('Error in handler formatting xtracta response')
 
     try:
-        command = sql_queries['insert_xtracta_result'].format(xtracta_document_id,\
+        command = SQLQUERIES['insert_xtracta_result'].format(xtracta_document_id,\
                                 revision, json.dumps(result))
         command = command.replace("%", "%%")
         cur.execute(command)
@@ -51,7 +52,8 @@ def handler(event, context=None):
     if int(revision) == 2:
         url = get_ui_from_xtracta(xtracta_document_id)
         if url:
-            command = sql_queries['update_document_url'].format(url, xtracta_document_id)
+            command = SQLQUERIES['update_document_url'].format(url,\
+                                'xtracta_'+xtracta_status, xtracta_document_id)
             try:
                 cur.execute(command)
             except db.Error:
@@ -63,7 +65,7 @@ def handler(event, context=None):
     """
     try:
         if int(revision) > 1:
-            command = sql_queries['get_lendi_id_for_xtracta_id'].format(xtracta_document_id)
+            command = SQLQUERIES['get_lendi_id_for_xtracta_id'].format(xtracta_document_id)
             cur.execute(command)
             lendi_document_id = cur.fetchone()
             if lendi_document_id:
@@ -81,7 +83,8 @@ def handler(event, context=None):
 def get_ui_from_xtracta(document_id):
     """To get document UI from xtracta"""
     response = requests.post(XTRACTA['url']+"documents/"+"ui",\
-        data={"submit":"Submit", "api_key":XTRACTA['key'], "document_id":document_id})
+        data={"submit":"Submit", "api_key":XTRACTA['key'],\
+         "document_id":document_id, "expire":84600})
     response_content = xmltodict.parse(response.content)
     if response_content['documents_response']['status'] == '200':
         url = response_content['documents_response']['url']
@@ -98,23 +101,23 @@ def update_salesforce(lendi_document_id, result):
     except db.Error:
         LOGGER.exception("Error in update_salesforce(), salesforce_db error")
     cur = conn.cursor()
-    command = sql_queries['get_sfid_for_lendi_document_id'].format(lendi_document_id)
+    command = SQLQUERIES['get_sfid_for_lendi_document_id'].format(lendi_document_id)
     cur.execute(command)
     sfid = cur.fetchone()
 
     if sfid:
         sfid = sfid[0]
         for field in result['field_data']['field']:
-            command = sql_queries['select_record_in_sf'].format(lendi_document_id,
-                                                                field['field_name'])
+            command = SQLQUERIES['select_record_in_sf'].format(lendi_document_id,\
+                                                            field['field_name'])
             cur.execute(command)
             isexist = cur.fetchone()
             if isexist:
-                command = sql_queries['update_xtracta_result_in_sf'].format(field['field_value'],\
+                command = SQLQUERIES['update_xtracta_result_in_sf'].format(field['field_value'],\
                                 lendi_document_id, field['field_name'])
                 cur.execute(command)
             else:
-                command = sql_queries['insert_xtracta_result_in_sf'].format(lendi_document_id,\
+                command = SQLQUERIES['insert_xtracta_result_in_sf'].format(lendi_document_id,\
                                                     sfid, field['field_name'], field['field_value'])
                 cur.execute(command)
     else:

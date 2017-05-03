@@ -1,5 +1,5 @@
 """List of all the database inquires"""
-SQLQUERIES = {"get_sfid_for_lendi_document_id": """SELECT sfid from salesforce.click_uploaded_documents__c\
+sql_queries = {"get_sfid_for_lendi_document_id": """SELECT sfid from salesforce.click_uploaded_documents__c\
                                                     WHERE lendi_uploaded_file_uuid__c = '{}';""",
 
                "get_lendi_id_for_xtracta_id": """SELECT lendi_document_id FROM xtracta.document_id_mapping WHERE\
@@ -37,6 +37,5 @@ SQLQUERIES = {"get_sfid_for_lendi_document_id": """SELECT sfid from salesforce.c
                                            ON result.xtracta_document_id = document_id_mapping.xtracta_document_id 
                                            WHERE document_id_mapping.lendi_document_id = '{}' ORDER BY revision DESC LIMIT 1;""",
 
-               "update_document_url":"""UPDATE xtracta.document_id_mapping SET ui_url = '{}' WHERE xtracta_document_id = '{}';""",
 
-               "select_xtracta_document":"""SELECT xtracta_document_id, ui_url, timestamp FROM xtracta.document_id_mapping WHERE lendi_document_id = '{}'"""}
+                "update_document_url":"""UPDATE xtracta.document_id_mapping SET ui_url = '{}' WHERE xtracta_document_id = '{}';"""}
