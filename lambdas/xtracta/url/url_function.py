@@ -71,5 +71,5 @@ def get_ui_from_xtracta(document_id):
     return response_content['documents_response']
 
 if __name__ == "__main__":
-    event = {"body":{"lendi_document_uuid":"ac2a448e-dcc4-422e-a430-bbf22a58e6e5"}}
+    event = {"body":{"lendi_document_uuid":"5643f329-84eb-42e8-bc1d-280894f4f705"}}
     print(handler(event))

@@ -32,8 +32,9 @@ def handler(event, context=None):
     command = sql_queries['select_document_data'].format(lendi_document_id)
     cur.execute(command)
     result = cur.fetchone()
+
     if result:
-        data.update({'xtracta_ui':result[0], 'extracted_data':result[1]})
+        url, data = result[0], result[1]
     conn.close()
     data = json.dumps(data)
     return data
