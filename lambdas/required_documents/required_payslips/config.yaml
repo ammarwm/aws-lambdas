@@ -1,8 +1,8 @@
 region: ap-southeast-2
-function_name: XtractaDownload
-handler: download_function.handler
+function_name: RequiredDocumentsPayslip
+handler: required_payslip_function.handler
 role: LendiAIAPI
-description: (Smart Documents) handles Xtracta push api calls to lendi-ai
+description: (Smart Documents) It is called to get the required documents (payslips)
 
 # if access key and secret are left blank, boto will use the credentials
 # defined in the [default] section of ~/.aws/credentials.

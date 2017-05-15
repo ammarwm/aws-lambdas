@@ -1,0 +1,306 @@
+{
+  "events": {
+    "event": {
+      "@sequence": "2604", 
+      "generated": "2017-04-24T03:32:45+00:00", 
+      "document": {
+        "@revision": "2", 
+        "workflow_id": "50713", 
+        "document_id": "22023248", 
+        "document_status": "indexing", 
+        "number_of_pages": "1", 
+        "api_download_status": "active", 
+        "free_form": None, 
+        "classification": "full", 
+        "document_url": "https://web1-akl.xtracta.com/datasource/1/a1/61/ovHwh2ynKr.pdf", 
+        "image_url": "https://web1-akl.xtracta.com/datasource/1/b2/a7/ovHwh2ynKr-1-0800.jpg", 
+        "field_data": {
+          "field": [
+            {
+              "field_id": "2191421", 
+              "field_name": "ABN", 
+              "field_value": "53 880 104 872", 
+              "field_value_location": {
+                "word": [
+                  {
+                    "page_number": "1", 
+                    "left": "75.85%", 
+                    "top": "10.46%", 
+                    "width": "1.49%", 
+                    "height": "0.85%"
+                  }, 
+                  {
+                    "page_number": "1", 
+                    "left": "77.98%", 
+                    "top": "10.46%", 
+                    "width": "2.38%", 
+                    "height": "0.85%"
+                  }, 
+                  {
+                    "page_number": "1", 
+                    "left": "81.01%", 
+                    "top": "10.46%", 
+                    "width": "2.3%", 
+                    "height": "0.85%"
+                  }, 
+                  {
+                    "page_number": "1", 
+                    "left": "83.87%", 
+                    "top": "10.46%", 
+                    "width": "2.38%", 
+                    "height": "0.85%"
+                  }
+                ]
+              }
+            }, 
+            {
+              "field_id": "2202699", 
+              "field_name": "Employer Name", 
+              "field_value": "Woonona Radiology Trust", 
+              "field_value_location": {
+                "word": [
+                  {
+                    "page_number": "1", 
+                    "left": "71.81%", 
+                    "top": "5.13%", 
+                    "width": "6.53%", 
+                    "height": "0.83%"
+                  }, 
+                  {
+                    "page_number": "1", 
+                    "left": "78.75%", 
+                    "top": "5.1%", 
+                    "width": "7.02%", 
+                    "height": "1.08%"
+                  }, 
+                  {
+                    "page_number": "1", 
+                    "left": "86.25%", 
+                    "top": "5.13%", 
+                    "width": "3.51%", 
+                    "height": "0.83%"
+                  }
+                ]
+              }
+            }, 
+            {
+              "field_id": "2213696", 
+              "field_name": "Payment Date", 
+              "field_value": "18/10/2016", 
+              "field_value_location": {
+                "word": {
+                  "page_number": "1", 
+                  "left": "41.77%", 
+                  "top": "28.98%", 
+                  "width": "7.46%", 
+                  "height": "0.85%"
+                }
+              }
+            }, 
+            {
+              "field_id": "2202713", 
+              "field_name": "Employment Status", 
+              "field_value": None, 
+              "field_value_location": None
+            }, 
+            {
+              "field_id": "2213698", 
+              "field_name": "Employee Name", 
+              "field_value": "Michelle Turner", 
+              "field_value_location": {
+                "word": [
+                  {
+                    "page_number": "1", 
+                    "left": "17.46%", 
+                    "top": "19.83%", 
+                    "width": "7.14%", 
+                    "height": "1.03%"
+                  }, 
+                  {
+                    "page_number": "1", 
+                    "left": "25.16%", 
+                    "top": "19.86%", 
+                    "width": "5.48%", 
+                    "height": "1%"
+                  }
+                ]
+              }
+            }, 
+            {
+              "field_id": "7349460", 
+              "field_name": "Job Title", 
+              "field_value": None, 
+              "field_value_location": None
+            }, 
+            {
+              "field_id": "2202714", 
+              "field_name": "Pament Period Begin Date", 
+              "field_value": "03/10/2016", 
+              "field_value_location": {
+                "word": {
+                  "page_number": "1", 
+                  "left": "12.14%", 
+                  "top": "28.98%", 
+                  "width": "7.58%", 
+                  "height": "0.85%"
+                }
+              }
+            }, 
+            {
+              "field_id": "2202715", 
+              "field_name": "Payment Period End Date", 
+              "field_value": "16/10/2016", 
+              "field_value_location": {
+                "word": {
+                  "page_number": "1", 
+                  "left": "21.33%", 
+                  "top": "28.98%", 
+                  "width": "7.46%", 
+                  "height": "0.85%"
+                }
+              }
+            }, 
+            {
+              "field_id": "8495671", 
+              "field_name": "Annual Income", 
+              "field_value": "$76,780.00", 
+              "field_value_location": {
+                "word": {
+                  "page_number": "1", 
+                  "left": "82.46%", 
+                  "top": "19.81%", 
+                  "width": "7.42%", 
+                  "height": "1.05%"
+                }
+              }
+            }, 
+            {
+              "field_id": "7340312", 
+              "field_name": "Gross Income", 
+              "field_value": "$2,945.00", 
+              "field_value_location": {
+                "word": {
+                  "page_number": "1", 
+                  "left": "68.91%", 
+                  "top": "28.84%", 
+                  "width": "7.94%", 
+                  "height": "1.28%"
+                }
+              }
+            }, 
+            {
+              "field_id": "7340313", 
+              "field_name": "Net Income", 
+              "field_value": "$1,813.00", 
+              "field_value_location": {
+                "word": {
+                  "page_number": "1", 
+                  "left": "87.26%", 
+                  "top": "28.84%", 
+                  "width": "7.94%", 
+                  "height": "1.28%"
+                }
+              }
+            }, 
+            {
+              "field_id": "7349845", 
+              "field_name": "Superannuation", 
+              "field_value": "$279.78", 
+              "field_value_location": {
+                "word": {
+                  "page_number": "1", 
+                  "left": "76.98%", 
+                  "top": "61.58%", 
+                  "width": "4.76%", 
+                  "height": "0.85%"
+                }
+              }
+            }, 
+            {
+              "field_id": "8495672", 
+              "field_name": "Paid Tax", 
+              "field_value": "$956.00", 
+              "field_value_location": {
+                "word": {
+                  "page_number": "1", 
+                  "left": "76.98%", 
+                  "top": "50.95%", 
+                  "width": "4.8%", 
+                  "height": "0.85%"
+                }
+              }
+            }, 
+            {
+              "field_id": "7350614", 
+              "field_name": "Bank Amount", 
+              "field_value": "$1,813.00", 
+              "field_value_location": {
+                "word": {
+                  "page_number": "1", 
+                  "left": "89.64%", 
+                  "top": "77.2%", 
+                  "width": "5.93%", 
+                  "height": "0.97%"
+                }
+              }
+            }
+          ], 
+          "field_set": {
+            "field_set_id": "1176480", 
+            "field_set_name": "Payments/Deductions", 
+            "row": [
+              {
+                "field": [
+                  {
+                    "field_id": "7340700", 
+                    "field_name": "Description", 
+                    "field_value": "Ordinary Hours"
+                  }, 
+                  {
+                    "field_id": "7340701", 
+                    "field_name": "Rate", 
+                    "field_value": "$38.0000"
+                  }, 
+                  {
+                    "field_id": "7340702", 
+                    "field_name": "Unit", 
+                    "field_value": "70.0000"
+                  }, 
+                  {
+                    "field_id": "7340703", 
+                    "field_name": "Amount", 
+                    "field_value": "$2,660.00"
+                  }
+                ]
+              }, 
+              {
+                "field": [
+                  {
+                    "field_id": "7340700", 
+                    "field_name": "Description", 
+                    "field_value": "Public Holiday"
+                  }, 
+                  {
+                    "field_id": "7340701", 
+                    "field_name": "Rate", 
+                    "field_value": "$38.0000"
+                  }, 
+                  {
+                    "field_id": "7340702", 
+                    "field_name": "Unit", 
+                    "field_value": "7.5000"
+                  }, 
+                  {
+                    "field_id": "7340703", 
+                    "field_name": "Amount", 
+                    "field_value": "$285.00"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

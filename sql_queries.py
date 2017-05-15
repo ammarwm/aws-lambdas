@@ -5,16 +5,20 @@ SQLQUERIES = {"select_sfid_for_lendi_document_id": """SELECT sfid from salesforc
                "select_lendi_id_for_xtracta_id": """SELECT lendi_document_id FROM xtracta.document_id_mapping WHERE\
                                                  xtracta_document_id = '{}';""",\
 
-               "insert_xtracta_result_in_sf": """INSERT INTO salesforce.document_schema__c (upload_document_uuid__c, uploaded_document__c, field_display_name__c, field_value__c)
-                                                 VALUES ('{}','{}','{}','{}');""",\
+               "insert_xtracta_result_in_sf": """INSERT INTO salesforce.document_schema__c (upload_document_uuid__c, uploaded_document__c, field_display_name__c, field_value__c, field_id__c)
+                                                 VALUES ('{}','{}','{}','{}','{}');""",\
 
                "delete_xtracta_result_line_items_in_sf": """DELETE FROM salesforce.document_schema_extension__c WHERE upload_document_uuid__c = '{}'""",\
+
+               "delete_xtracta_result_in_sf": """DELETE FROM salesforce.document_schema__c WHERE upload_document_uuid__c = '{}'""",\
 
                "insert_xtracta_result_line_item_in_sf": """INSERT INTO salesforce.document_schema_extension__c (upload_document_uuid__c, uploaded_document__c,field_name__c,\
                                                                 field_value__c, row_index__c, field_set_id__c) VALUES ('{}','{}','{}','{}','{}','{}');""",\
 
-               "update_xtracta_result_in_sf": """UPDATE salesforce.document_schema__c SET field_value__c = '{}'
-                                                 WHERE upload_document_uuid__c = '{}' and field_display_name__c = '{}'""",\
+               "update_xtracta_result_in_sf": """INSERT INTO salesforce.document_schema__c
+                                                (upload_document_uuid__c, uploaded_document__c, field_display_name__c, field_value__c, field_id__c)
+                                                 VALUES ('{}','{}','{}','{}','{}') ON CONFLICT (field_id__c)
+                                                 DO UPDATE SET  field_value__c = '{}'""",\
 
                "select_record_in_sf":"""SELECT 1 FROM salesforce.document_schema__c
                                         WHERE upload_document_uuid__c = '{}' and field_display_name__c = '{}'""",
@@ -46,4 +50,7 @@ SQLQUERIES = {"select_sfid_for_lendi_document_id": """SELECT sfid from salesforc
 
                "select_xtracta_document":"""SELECT xtracta_document_id, ui_url, timestamp FROM xtracta.document_id_mapping WHERE lendi_document_id = '{}'""",
 
-               "select_field_set_id_in_sf":"""SELECT 1 FROM salesforce.document_schema_extension__c WHERE field_set_id__c = '{}'"""}
+               "select_field_set_id_in_sf":"""SELECT 1 FROM salesforce.document_schema_extension__c WHERE field_set_id__c = '{}'""",
+               
+               "select_payslip_requirements":"""SELECT lender_name, document_name, document_age, no_of_documents FROM required_documents.payslip\
+                                                WHERE lender_name = '{}' AND employment_type = '{}';"""}
