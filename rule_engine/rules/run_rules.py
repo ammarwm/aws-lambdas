@@ -12,4 +12,4 @@ with select('payslip'):
     def on_start(host):
         LOGGER.info('staring payslip rules')
 
-run_all()
+run_all([config.AWS_REDIS],host_name = config.AWS_EC2_RULE_ENGINE )

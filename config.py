@@ -35,4 +35,7 @@ XTRACTA = {"url":os.getenv("XTRACTA_URL"), "key":os.getenv("XTRACTA_KEY")}
 
 WORKFLOW_MAPPING = {"a1u6F000003HtqHQAS":"50713"}
 
+AWS_REDIS = {'host': 'lendi-redis.ny2tmo.0001.apse2.cache.amazonaws.com', 'port': 6379}
+AWS_EC2_RULE_ENGINE = '10.0.1.230'
+
 
