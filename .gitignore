@@ -1,4 +1,4 @@
-ompiled source #
+#compiled source #
 ###################
 *.com
 *.class
@@ -12,6 +12,7 @@ ompiled source #
 #Directories#
 bin/
 dist/
+.idea/
 __pycache__/
 # Packages #
 ############
