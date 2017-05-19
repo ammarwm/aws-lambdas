@@ -1,10 +1,23 @@
 import os
+import sys
+import logging
 from dotenv import Dotenv
 try:
     dotenv_ = Dotenv('/Users/localuser/.env')
     os.environ.update(dotenv_)
 except IOError:
     pass
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(ROOT_DIR)
+
+LOGGER = logging.getLogger("root")
+#LOG_HANDLER = logging.StreamHandler()
+LOG_HANDLER = logging.FileHandler('/var/log/rule-engine/rules.log')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+LOG_HANDLER.setFormatter(formatter)
+LOGGER.addHandler(LOG_HANDLER)
+LOGGER.setLevel(logging.INFO)
 
 DATABASES = {
     "lendi_ai" : {"host":os.getenv("LENDIAI_DBHOST"),
@@ -21,3 +34,5 @@ XTRACTA_URL_TIMEOUT = 3600
 XTRACTA = {"url":os.getenv("XTRACTA_URL"), "key":os.getenv("XTRACTA_KEY")}
 
 WORKFLOW_MAPPING = {"a1u6F000003HtqHQAS":"50713"}
+
+

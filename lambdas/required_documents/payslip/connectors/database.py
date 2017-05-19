@@ -15,7 +15,7 @@ class Database:
         self.db_name = db_name
         self.conn = None
         self.cur = None
-
+        pass
 
     def connect(self):
         try:
@@ -52,9 +52,3 @@ class Database:
         if self.conn:
             self.cur.close()
             self.conn.close()
-
-if __name__ == '__main__':
-    db = Database()
-    db.connect()
-    db.execute('select * from required_documents.payslip_master limit 10')
-    db.get_result('all')

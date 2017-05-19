@@ -1,10 +1,14 @@
 import os
+import sys
 from dotenv import Dotenv
 try:
     dotenv_ = Dotenv('/Users/localuser/.env')
     os.environ.update(dotenv_)
 except IOError:
     pass
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(ROOT_DIR)
 
 DATABASES = {
     "lendi_ai" : {"host":os.getenv("LENDIAI_DBHOST"),

@@ -50,4 +50,7 @@ SQLQUERIES = {"select_sfid_for_lendi_document_id": """SELECT sfid from salesforc
 
                "select_xtracta_document":"""SELECT xtracta_document_id, ui_url, timestamp FROM xtracta.document_id_mapping WHERE lendi_document_id = '{}'""",
 
-               "select_field_set_id_in_sf":"""SELECT 1 FROM salesforce.document_schema_extension__c WHERE field_set_id__c = '{}'"""}
+               "select_field_set_id_in_sf":"""SELECT 1 FROM salesforce.document_schema_extension__c WHERE field_set_id__c = '{}'""",
+               
+               "select_payslip_requirements":"""SELECT lender_name, document_name, document_age, no_of_documents FROM required_documents.payslip_master\
+                                                WHERE lender_name = '{}' AND employment_type = '{}';"""}

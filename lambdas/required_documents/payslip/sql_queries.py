@@ -53,4 +53,6 @@ SQLQUERIES = {"select_sfid_for_lendi_document_id": """SELECT sfid from salesforc
                "select_field_set_id_in_sf":"""SELECT 1 FROM salesforce.document_schema_extension__c WHERE field_set_id__c = '{}'""",
                
                "select_payslip_requirements":"""SELECT lender_name, document_name, document_age, no_of_documents FROM required_documents.payslip_master\
-                                                WHERE lender_name = '{}' AND employment_type = '{}';"""}
+                                                WHERE lender_name = '{}' AND employment_type = '{}';""",
+              
+              "update_validation_result":"""UPDATE validator.validation_request SET result = '{0}' WHERE uuid = '{1}';"""}
