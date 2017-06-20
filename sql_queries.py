@@ -85,5 +85,11 @@ SQLQUERIES = {"select_sfid_for_lendi_document_id": """SELECT sfid from salesforc
                                             application_required_documents.uuid = application_uploaded_documents.required_document_uuid WHERE
                                             application_required_documents.application_uuid = '{}' AND application_required_documents.applicant_uuid = '{}'""",\
 
+              "delete_application_required_documents":"""UPDATE required_documents.application_required_documents SET isdeleted = 1 WHERE application_uuid = '{}' AND applicant_uuid = '{}'""",\
+
+              "delete_application_uploaded_documents":"""UPDATE required_documents.application_uploaded_documents SET isdeleted = 1 WHERE application_uuid = '{}' AND applicant_uuid = '{}'""",\
+
+              "delete_application_rules":"""UPDATE required_documents.application_rules SET isdeleted = 1 WHERE application_uuid = '{}' AND applicant_uuid = '{}'"""
+
               }
 
