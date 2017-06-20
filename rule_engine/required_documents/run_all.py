@@ -2,15 +2,16 @@ import sys
 import config
 import logging
 from durable.lang import *
-import payslip
+from required_documents import required_documents
 
 #Get the LOGGER
 LOGGER = logging.getLogger("root")
 
-with select('payslip'):
+with select('required_documents'):
+
     @when_start
     def on_start(host):
-        LOGGER.info('staring payslip rules')
+        LOGGER.info('staring required documents rules')
 
 #run_all([config.AWS_REDIS],host_name = config.AWS_EC2_RULE_ENGINE )
-run_all(host_name='192.168.25.214')
+run_all()

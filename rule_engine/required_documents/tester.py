@@ -12,7 +12,7 @@ class Test(unittest.TestCase):
         sid = 'c8274353-8753-440a-af82-4efb21335001'
         url = 'http://localhost:5000/payslip/'
         requests.post(url+'facts', json={'sid':sid,'required_document_age':14})
-        requests.post(url+'events', json={"sid":sid,"document_age":89})
+        requests.post(url+'events', json={"sid":sid,"document_age":10})
 
 if __name__ == '__main__':
     unittest.main()
