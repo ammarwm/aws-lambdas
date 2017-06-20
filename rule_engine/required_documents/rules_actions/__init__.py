@@ -1,5 +1,6 @@
-from get_required_documents import GetReqDocuments
-from write_required_documents import GetReqDocuments
+from insert_required_documents import InsertReqDocuments
+from validate_required_documents import ValidateReqDocuments
+from insert_documents_rules import InsertDocRules
 
-__all__ = ['GetReqDocuments']
+__all__ = ['InsertReqDocuments','ValidateReqDocuments','InsertDocRules']
 

@@ -55,4 +55,35 @@ SQLQUERIES = {"select_sfid_for_lendi_document_id": """SELECT sfid from salesforc
                "select_payslip_requirements":"""SELECT lender_name, document_name, document_age, no_of_documents FROM required_documents.payslip_master\
                                                 WHERE lender_name = '{}' AND employment_type = '{}';""",
               
-              "update_validation_result":"""UPDATE validator.validation_request SET result = '{0}' WHERE uuid = '{1}';"""}
+              "update_validation_result":"""UPDATE validator.validation_request SET result = '{0}' WHERE uuid = '{1}';""",\
+              
+              "select_required_documents":"""SELECT uuid, conditions, constraints FROM required_documents.lender_document_master WHERE
+                                                lender_name = '{}' AND employment_type = '{}' AND loan_type = '{}'""",\
+
+              "select_uploaded_documents":"""SELECT * FROM required_documents.application_uploaded_documents JOIN 
+                                            required_documents.application_required_documents ON 
+                                            application_required_documents.uuid = application_uploaded_documents.required_document_uuid WHERE
+                                            opportunity_uuid = '{}'""",\
+
+              "insert_required_documents":"""INSERT INTO required_documents.application_required_documents\
+                                            (application_uuid, applicant_uuid, document_master_uuid, conditions, constraints)\
+                                             VALUES (%s, %s, %s, %s, %s)""",\
+
+              "select_application_reqdoc_rule":"""SELECT * FROM required_documents.application_rules WHERE\
+                                      application_uuid = '{}' AND applicant_uuid = '{}'""",\
+
+              "select_lender_rule":"""SELECT * FROM required_documents.lender_rules WHERE lender_name = '{}' AND
+                                      loan_type = '{}' AND employment_type = '{}' and type = '{}'""",\
+
+              "insert_application_reqdoc_rule":"""INSERT INTO required_documents.application_rules (application_uuid, applicant_uuid, rule)
+                                                  VALUES('{}', '{}', '{}')""",\
+
+              "application_rules":"""SELECT * FROM required_documents.application_rules WHERE application_uuid = '{}' AND applicant_uuid = '{}'""",\
+
+              "select_uploaded_documents":"""SELECT * FROM required_documents.application_uploaded_documents JOIN 
+                                            required_documents.application_required_documents ON 
+                                            application_required_documents.uuid = application_uploaded_documents.required_document_uuid WHERE
+                                            application_required_documents.application_uuid = '{}' AND application_required_documents.applicant_uuid = '{}'""",\
+
+              }
+
