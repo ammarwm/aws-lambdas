@@ -1,6 +1,6 @@
 #!/Users/localuser/anaconda/bin python
 import sys
-if 'linux' in sys.platform():
+if 'linux' in sys.platform:
     sys.path.append("/Users/localuser/Workspace/lendi-ai")
 import config
 import logging
