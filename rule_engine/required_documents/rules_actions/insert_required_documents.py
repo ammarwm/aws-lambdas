@@ -11,7 +11,7 @@ class InsertReqDocuments(BaseAction):
 
     def do(self, kwarg):
 
-        db = Database('lendi_ai')
+        db = Database(self.db_info)
         db.connect()
         command = SQLQUERIES['select_required_documents'].format(kwarg['lender_name'],
                             kwarg['employment_type'], kwarg['loan_type'])

@@ -10,7 +10,7 @@ class GetUploadedDocuments(BaseAction):
 
     def do(self, opportunity_uuid):
 
-        db = Database('lendi_ai')
+        db = Database(self.db_info)
         db.connect()
         command = SQLQUERIES['select_uploaded_documents'].format(opportunity_uuid)
         db.execute(command)

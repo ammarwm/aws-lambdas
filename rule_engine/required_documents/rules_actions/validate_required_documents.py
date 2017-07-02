@@ -9,7 +9,7 @@ class ValidateReqDocuments(BaseAction):
         pass
 
     def do(self, kwarg):
-        db = Database('lendi_ai')
+        db = Database(self.db_info)
         db.connect()
         command = SQLQUERIES['application_rules'].format(kwarg['application_uuid'], kwarg['applicant_uuid'])
         db.execute(command)
@@ -21,8 +21,6 @@ class ValidateReqDocuments(BaseAction):
         db.close()
 
     def evaluate_rule(self, docs, rule):
-        print(rule)
-        print(docs)
         rule = rule[0]['rule']
         rule_ = rule.replace('or', '').\
                     replace('and', '').\
@@ -34,7 +32,6 @@ class ValidateReqDocuments(BaseAction):
         for re in docs:
             exec(re['name'] + "= 1")
         result = eval(rule)
-        print(result)
         return result
 
 if __name__ == "__main__":

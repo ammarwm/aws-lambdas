@@ -1,23 +1,19 @@
 import logging
-
 import pg8000 as db
-
-from config import DATABASES
 
 #Get the LOGGER
 LOGGER = logging.getLogger("root")
 
 
 class Database:
-    def __init__(self, db_name='lendi_ai'):
-        self.db_name = db_name
+    def __init__(self, db_info=None):
+        self.db_info = db_info
         self.conn = None
         self.cur = None
 
-
     def connect(self):
         try:
-            self.conn = db.connect(**DATABASES[self.db_name])
+            self.conn = db.connect(**self.db_info)
             self.cur = self.conn.cursor()
         except db.Error:
             LOGGER.exception("Error in establishing connection to lendi_db error" )
@@ -54,7 +50,6 @@ class Database:
 
         for row in rows:
             result.append({a: b for a, b in zip(cols, row)})
-        #import pdb;pdb.set_trace()
         return result
 
     def close(self):
@@ -63,7 +58,8 @@ class Database:
             self.conn.close()
 
 if __name__ == '__main__':
-    db_ = Database()
+    from config import DATABASES
+    db_ = Database(DATABASES['lendi_ai'])
     db_.connect()
     db_.execute('select * from required_documents.payslip_master limit 10')
     print(db_.get_result('all'))

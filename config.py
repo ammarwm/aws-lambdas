@@ -4,10 +4,10 @@ import logging
 from dotenv import Dotenv
 try:
     dotenv_ = Dotenv('/Users/localuser/.env')
-    os.environ.update(dotenv_)
 except IOError:
-    pass
+    dotenv_ = Dotenv('/home/ec2-user/.env')
 
+os.environ.update(dotenv_)
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(ROOT_DIR)
 

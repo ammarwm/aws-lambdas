@@ -11,7 +11,7 @@ class InsertDocRules(BaseAction):
 
     def do(self, kwarg):
 
-        db = Database('lendi_ai')
+        db = Database(self.db_info)
         db.connect()
         command = SQLQUERIES['select_lender_rule'].format(kwarg['lender_name'],
                             kwarg['loan_type'], kwarg['employment_type'], kwarg['type'])

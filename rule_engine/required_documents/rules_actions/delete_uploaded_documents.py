@@ -11,7 +11,7 @@ class DelUploadedDocuments(BaseAction):
 
     def do(self, kwarg):
 
-        db = Database('lendi_ai')
+        db = Database(self.db_info)
         db.connect()
         command = SQLQUERIES['delete_application_uploaded_documents'].format(kwarg['application_uuid'],
                              kwarg['applicant_uuid'])
