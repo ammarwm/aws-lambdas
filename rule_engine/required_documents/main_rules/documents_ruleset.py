@@ -26,7 +26,7 @@ with ruleset('required_documents'):
                     'loan_type': c.m.loan_type,
                     'application_uuid': c.m.application_uuid,
                     'applicant_uuid': c.m.applicant_uuid,
-                    'type': "required_documents"})
+                    'type': "loan_document"})
 
 
 

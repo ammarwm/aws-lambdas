@@ -7,7 +7,7 @@ from base_action import BaseAction
 
 class InsertDocRules(BaseAction):
     def __init__(self):
-        pass
+        super(InsertDocRules, self).__init__(object.__class__.__name__)
 
     def do(self, kwarg):
 
@@ -28,10 +28,10 @@ class InsertDocRules(BaseAction):
 if __name__ == "__main__":
 
     insert = InsertDocRules()
-    insert.do({"lender_name":"AMP",
+    insert.do({"lender_name":"default",
                "employment_type":"PAYG",
-               "loan_type":"Refinance",
+               "loan_type":"refinance",
                "application_uuid":"xxxx",
                "applicant_uuid":"xxx",
-               "type":"required_documents"})
+               "type":"loan_document"})
     #print(insert.result)

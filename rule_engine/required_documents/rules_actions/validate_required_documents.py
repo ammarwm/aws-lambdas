@@ -6,7 +6,7 @@ from base_action import BaseAction
 
 class ValidateReqDocuments(BaseAction):
     def __init__(self):
-        pass
+        super(ValidateReqDocuments, self).__init__(object.__class__.__name__)
 
     def do(self, kwarg):
         db = Database(self.db_info)

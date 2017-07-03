@@ -6,7 +6,7 @@ from base_action import BaseAction
 
 class GetUploadedDocuments(BaseAction):
     def __init__(self):
-        pass
+        super(GetUploadedDocuments, self).__init__(object.__class__.__name__)
 
     def do(self, opportunity_uuid):
 
